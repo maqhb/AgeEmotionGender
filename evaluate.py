@@ -16,16 +16,15 @@ FACE_SIZE = 64
 # Model location
 # Face model from CV2 (Haar cascade)
 FACE_MODEL_FILE = ".\\models\\haarcascade_frontalface_alt.xml"
-# Gender and Age model from https://github.com/Tony607/Keras_age_gender
-# with Wide ResNet from https://github.com/asmith26/wide_resnets_keras
+
 AG_MODEL_FILE = ".\\models\\weights.18-4.06.hdf5"
-# Emotion model from https://github.com/petercunha/Emotion
+
 EM_MODEL_FILE = '.\\models\\emotion_model.hdf5'
 
 # Source c onfiguration
-USE_WEBCAM = True
+USE_WEBCAM = False
 WEBCAM_ID = 0
-#VIDEO_FILE = "demo.mp4"
+VIDEO_FILE = "demo.mp4"
 
 
 def get_age_gender(face_image):
