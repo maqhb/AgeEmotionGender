@@ -1,18 +1,3 @@
-"""
-This application performs an age/gender/emotion estimation based upon a
-video source (videofile or webcam)
-
-Usage:
-      python evaluate.py
-
-For now, switching input source is done with global variables in the source code
-
-The following work is used:
-1. OpenCV2 haar cascade face recognition from https://github.com/opencv/opencv/
-2. Gender and Age model                  from https://github.com/Tony607/Keras_age_gender
-3. Emotion model                         from https://github.com/petercunha/Emotion
-4. Wide Resnet implementation            from https://github.com/asmith26/wide_resnets_keras
-"""
 import numpy as np
 from keras.models import load_model
 import cv2
@@ -44,11 +29,6 @@ WEBCAM_ID = 0
 
 
 def get_age_gender(face_image):
-    """
-    Determine the age and gender of the face in the picture
-    :param face_image: image of the face
-    :return: (age, gender) of the image
-    """
     face_imgs = np.empty((1, FACE_SIZE, FACE_SIZE, 3))
     face_imgs[0, :, :, :] = face_image
     result = model.predict(face_imgs)
@@ -58,11 +38,6 @@ def get_age_gender(face_image):
 
 
 def get_emotion(face_image):
-    """
-    Determine the age and gender of the face in the picture
-    :param face_image: image of the face
-    :return: str:emotion of the image
-    """
     gray_face = cv2.cvtColor(face_image, cv2.COLOR_BGR2GRAY)
     gray_face = scale(gray_face)
     gray_face = np.expand_dims(gray_face, 0)
